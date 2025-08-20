@@ -21,12 +21,12 @@ export default async function Image() {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#1a1a1a",
+          backgroundColor: "#0a0a0a",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Background gradient with Farcaster purple and electric blue */}
+        {/* Animated gradient background */}
         <div
           style={{
             position: "absolute",
@@ -34,12 +34,12 @@ export default async function Image() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: "linear-gradient(135deg, #8A63D2 0%, #1E90FF 100%)",
+            background: "linear-gradient(135deg, #1a4d3a 0%, #2d7a5f 50%, #4ade80 100%)",
             opacity: 0.9,
           }}
         />
 
-        {/* Subtle pattern overlay for depth */}
+        {/* Snake-inspired pattern overlay */}
         <div
           style={{
             position: "absolute",
@@ -47,12 +47,15 @@ export default async function Image() {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundImage:
-              "radial-gradient(circle at 20% 80%, rgba(138, 99, 210, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(30, 144, 255, 0.4) 0%, transparent 50%)",
+            backgroundImage: `
+              radial-gradient(circle at 25% 25%, rgba(74, 222, 128, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 75% 75%, rgba(45, 122, 95, 0.4) 0%, transparent 50%),
+              linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.1) 49%, rgba(255, 255, 255, 0.1) 51%, transparent 52%)
+            `,
           }}
         />
 
-        {/* Main content container - centered in safe zone */}
+        {/* Main content container */}
         <div
           style={{
             display: "flex",
@@ -66,7 +69,7 @@ export default async function Image() {
             zIndex: 10,
           }}
         >
-          {/* User avatar with glow effect */}
+          {/* Game icon representation */}
           <div
             style={{
               display: "flex",
@@ -76,63 +79,70 @@ export default async function Image() {
               position: "relative",
             }}
           >
-            {/* Glow effect */}
+            {/* Snake body segments */}
             <div
               style={{
-                position: "absolute",
-                width: "140px",
-                height: "140px",
-                borderRadius: "50%",
-                background:
-                  "radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%)",
-                filter: "blur(20px)",
-              }}
-            />
-            {/* Avatar container */}
-            <div
-              style={{
-                width: "120px",
-                height: "120px",
-                borderRadius: "50%",
-                overflow: "hidden",
-                border: "6px solid rgba(255, 255, 255, 0.95)",
-                backgroundColor: "#ffffff",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center",
-                position: "relative",
-                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
+                gap: "8px",
+                padding: "20px 32px",
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                borderRadius: "60px",
+                border: "4px solid rgba(74, 222, 128, 0.6)",
+                backdropFilter: "blur(10px)",
+                boxShadow: "0 12px 40px rgba(0, 0, 0, 0.3)",
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={PROJECT_AVATAR_URL}
-                alt="User avatar"
+              {/* Snake segments */}
+              <div
                 style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  backgroundColor: "#4ade80",
+                  boxShadow: "0 4px 12px rgba(74, 222, 128, 0.4)",
+                }}
+              />
+              <div
+                style={{
+                  width: "28px",
+                  height: "28px",
+                  borderRadius: "50%",
+                  backgroundColor: "#22c55e",
+                }}
+              />
+              <div
+                style={{
+                  width: "24px",
+                  height: "24px",
+                  borderRadius: "50%",
+                  backgroundColor: "#16a34a",
+                }}
+              />
+              <div
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
+                  backgroundColor: "#15803d",
                 }}
               />
             </div>
           </div>
 
-          {/* Project title with high contrast */}
+          {/* Project title */}
           <h1
             style={{
-              fontSize: PROJECT_TITLE.length > 25 ? "65px" : "72px",
+              fontSize: "78px",
               fontWeight: "900",
               color: "#ffffff",
               textAlign: "center",
-              marginBottom: "40px",
+              marginBottom: "32px",
               lineHeight: 1.1,
               letterSpacing: "-2px",
-              textShadow: "0 6px 20px rgba(0, 0, 0, 0.4)",
-              maxWidth: "1100px",
+              textShadow: "0 8px 24px rgba(0, 0, 0, 0.5)",
+              maxWidth: "1000px",
               fontFamily: "system-ui, -apple-system, sans-serif",
-              whiteSpace: PROJECT_TITLE.length > 40 ? "normal" : "nowrap",
-              paddingLeft: "20px",
-              paddingRight: "20px",
             }}
           >
             {PROJECT_TITLE}
@@ -141,13 +151,13 @@ export default async function Image() {
           {/* Project description */}
           <p
             style={{
-              fontSize: "36px",
+              fontSize: "32px",
               fontWeight: "600",
-              color: "rgba(255, 255, 255, 0.95)",
+              color: "rgba(255, 255, 255, 0.9)",
               textAlign: "center",
-              marginBottom: "56px",
+              marginBottom: "48px",
               lineHeight: 1.3,
-              textShadow: "0 3px 12px rgba(0, 0, 0, 0.4)",
+              textShadow: "0 4px 16px rgba(0, 0, 0, 0.4)",
               maxWidth: "800px",
               fontFamily: "system-ui, -apple-system, sans-serif",
             }}
@@ -155,29 +165,76 @@ export default async function Image() {
             {PROJECT_DESCRIPTION}
           </p>
 
-          {/* Farcaster branding element */}
+          {/* Creator info with avatar */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "16px",
-              padding: "20px 40px",
-              backgroundColor: "rgba(255, 255, 255, 0.2)",
-              borderRadius: "100px",
-              border: "3px solid rgba(255, 255, 255, 0.4)",
+              gap: "20px",
+              padding: "16px 32px",
+              backgroundColor: "rgba(255, 255, 255, 0.12)",
+              borderRadius: "60px",
+              border: "2px solid rgba(255, 255, 255, 0.2)",
               backdropFilter: "blur(10px)",
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+              marginBottom: "32px",
             }}
           >
-            {/* Farcaster icon */}
+            {/* Creator avatar */}
+            <div
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                overflow: "hidden",
+                border: "3px solid rgba(255, 255, 255, 0.3)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={PROJECT_AVATAR_URL}
+                alt="Creator avatar"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+            <span
+              style={{
+                fontSize: "24px",
+                fontWeight: "700",
+                color: "#ffffff",
+                fontFamily: "system-ui, -apple-system, sans-serif",
+              }}
+            >
+              Created by tophb
+            </span>
+          </div>
+
+          {/* Farcaster branding */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              padding: "16px 28px",
+              backgroundColor: "rgba(124, 101, 193, 0.2)",
+              borderRadius: "50px",
+              border: "2px solid rgba(124, 101, 193, 0.4)",
+              backdropFilter: "blur(10px)",
+            }}
+          >
             <svg
-              width="32"
-              height="32"
+              width="28"
+              height="28"
               viewBox="0 0 256 256"
               fill="none"
-              style={{
-                display: "block",
-              }}
+              style={{ display: "block" }}
             >
               <rect width="256" height="256" rx="56" fill="#7C65C1"></rect>
               <path
@@ -187,28 +244,26 @@ export default async function Image() {
             </svg>
             <span
               style={{
-                fontSize: "26px",
-                fontWeight: "700",
+                fontSize: "22px",
+                fontWeight: "600",
                 color: "#ffffff",
                 fontFamily: "system-ui, -apple-system, sans-serif",
-                letterSpacing: "-0.5px",
               }}
             >
-              Farcaster Mini App
+              Mini App
             </span>
           </div>
         </div>
 
-        {/* Bottom gradient fade for depth */}
+        {/* Bottom accent */}
         <div
           style={{
             position: "absolute",
             bottom: 0,
             left: 0,
             right: 0,
-            height: "200px",
-            background:
-              "linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 100%)",
+            height: "120px",
+            background: "linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%)",
           }}
         />
       </div>
