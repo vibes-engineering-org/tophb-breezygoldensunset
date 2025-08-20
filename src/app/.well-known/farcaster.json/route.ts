@@ -7,26 +7,23 @@ export async function GET() {
 
   const config = {
     accountAssociation: {
-      header:
-        "eyJmaWQiOjEzNTk2LCJ0eXBlIjoiY3VzdG9keSIsImtleSI6IjB4ODE3MzE4RDZmRkY2NkExOGQ4M0ExMzc2QTc2RjZlMzBCNDNjODg4OSJ9",
-      payload:
-        "eyJkb21haW4iOiJmYXJjYXN0ZXItbWluaWFwcC10ZW1wbGF0ZS52ZXJjZWwuYXBwIn0",
-      signature:
-        "MHg5ZjkyZTdkNjRmZTNhNTE4YTEzOTBmZTdlYzAwOWQzODUzZWM2N2RmOTZiYjg1MzAwOGRlZDExNjVmOGE5OGVlNDQyYmI0MDU3OTI0ZmEzOGE3N2NlYWRiYThiMTRiN2IzMTY5N2ZjYWVlZGM3MTE1YWNiMTFmYjc2Y2EzYTc0YzFj",
+      header: "eyJmaWQiOjg2OTk5OSwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDc2ZDUwQjBFMTQ3OWE5QmEyYkQ5MzVGMUU5YTI3QzBjNjQ5QzhDMTIifQ",
+      payload: "eyJkb21haW4iOiJ0b3BoYi1icmVlenlnb2xkZW5zdW5zZXQudmVyY2VsLmFwcCJ9",
+      signature: "MHhhNTM5N2M5ZjA0ODIzZmRkZTE0NTY5YzljNTM0OTk2OTFiZmQyY2VkNDBhZTVkYzg0ZjRjZTIxZTNjNTY0MTFiMzc0ZjkwODdlZWUyYjVjZGIxMjU0ZWQ0NjA0Y2E2MDllODVmYzYyNjgxODNiMTFmYTdjNWQyODJiMWQ2YzRmYTFi"
     },
-    miniapp: {
+    frame: {
       version: "1",
       name: PROJECT_TITLE,
       iconUrl: `${appUrl}/icon.png`,
       homeUrl: appUrl,
-      imageUrl: `${appUrl}/frames/hello/opengraph-image`,
-      ogImageUrl: `${appUrl}/frames/hello/opengraph-image`,
+      imageUrl: `${appUrl}/og.png`,
       buttonTitle: "Open",
-      splashImageUrl: `${appUrl}/splash.png`,
-      splashBackgroundColor: "#f7f7f7",
       webhookUrl: `${appUrl}/api/webhook`,
-      primaryCategory: "social",
-    },
+      splashImageUrl: `${appUrl}/splash.png`,
+      splashBackgroundColor: "#555555",
+      primaryCategory: "games",
+      tags: ["snake", "game", "retro", "arcade", "puzzle"]
+    }
   };
 
   return Response.json(config);
